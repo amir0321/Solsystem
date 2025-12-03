@@ -1,0 +1,14 @@
+# --- Editor-filer (JetBrains/WebStorm) ---
+.idea/
+/shelf/
+/workspace.xml
+*.iws
+*.iml
+/out/
+/httpRequests/
+/dataSources/
+/dataSources.local.xml
+
+# --- Systemfiler (Mac/Windows skräp) ---
+.DS_Store
+Thumbs.db
