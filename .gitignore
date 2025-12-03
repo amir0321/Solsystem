@@ -1,7 +1,7 @@
 # --- Editor-filer (JetBrains/WebStorm) ---
 .idea/
 /shelf/
-/workspace.xml
+/.idea/workspace.xml
 *.iws
 *.iml
 /out/
