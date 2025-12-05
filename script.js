@@ -1,4 +1,7 @@
-const BASE_URL = 'https://4a6l0o1px9.execute-api.eu-north-1.amazonaws.com';
+// Hämta API-nyckel
+import { getKey, getBodies } from './service.js';
+
+// Overlay-element
 const overlay = document.getElementById('overlay');
 const closeBtn = document.getElementById('close-btn');
 const errorOverlay = document.getElementById('error-overlay');
@@ -17,31 +20,7 @@ const ui = {
     moons: document.getElementById('modal-moons')
 };
 
-// Hämta API-nyckel
-async function getKey() {
-    try {
-        const res = await fetch(`${BASE_URL}/key`);
-        const data = await res.json();
-        return data.key;
-    } catch (error) {
-        console.error("Kunde inte hämta nyckel:", error);
-    }
-}
-
-// Hämta all data
-async function getBodies(key) {
-    const resp = await fetch(`${BASE_URL}/bodies?errorcode=true`, {
-        headers: {'x-zocom': key}
-    });
-
-    if (!resp.ok) {
-        throw new Error(`API error! status: ${resp.status}`);
-    }
-
-    const data = await resp.json();
-    return data.bodies;
-}
-
+// Formatera nummer med mellanslag som tusentalsavgränsare
 function formatNumber(num) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
@@ -103,7 +82,6 @@ async function init() {
         }
     });
     } catch (error) {
-        console.error("Ett fel uppstod:", error);
         errorOverlay.classList.remove('hidden');
     }
 }
