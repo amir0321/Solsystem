@@ -1,25 +1,129 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Solsystemet – Solaris</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solsystemet - Solaris</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <h1>SOLSYSTEMET</h1>
-    <h2>SOLARIS</h2>
-</header>
+<section class="stars-container">
+    <div class="stars-small"></div>
+    <div class="stars-medium"></div>
+    <div class="stars-large"></div>
+</section>
 
-<main id="solar-system"></main>
+<main id="solar-system-view">
+    <header class="main-header">
+        <h1>SOLSYSTEMET</h1>
+        <h2>SOLARIS</h2>
+    </header>
 
-<aside id="overlay" class="overlay-hidden"></aside>
+    <section class="planets-container">
+        <aside id="Solen" class="sun"></aside>
 
-<footer>
-    <p>ZoCom</p>
-</footer>
+        <ul class="planets">
+            <li id="Merkurius" class="planet mercury"></li>
+            <li id="Venus" class="planet venus"></li>
+            <li id="Jorden" class="planet earth"></li>
+            <li id="Mars" class="planet mars"></li>
+            <li id="Jupiter" class="planet jupiter"></li>
+            <li id="Saturnus" class="planet saturn">
+                <section class="ring"></section>
+            </li>
+            <li id="Uranus" class="planet uranus"></li>
+            <li id="Neptunus" class="planet neptune"></li>
+        </ul>
+    </section>
+
+    <footer class="main-footer">
+        <p>ZoCom</p>
+    </footer>
+</main>
+
+
+<aside id="overlay" class="overlay hidden">
+    <ul class="stars-container">
+        <li class="stars-small"></li>
+        <li class="stars-medium"></li>
+        <li class="stars-large"></li>
+    </ul>
+
+    <section class="overlay-decoration"></section>
+
+    <svg width="368" height="900" viewBox="0 0 368 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g filter="url(#filter0_d_7_8)">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 820.061C74.3038 715.639 118 587.922 118 450C118 312.078 74.3038 184.361 0 79.9392V820.061Z" fill="#428ED5"/>
+        </g>
+        <defs>
+            <filter id="filter0_d_7_8" x="-250" y="-170.061" width="618" height="1240.12" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset/>
+                <feGaussianBlur stdDeviation="125"/>
+                <feComposite in2="hardAlpha" operator="out"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 0.815257 0 0 0 0 0.1625 0 0 0 0.2 0"/>
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_7_8"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_7_8" result="shape"/>
+            </filter>
+        </defs>
+    </svg>
+
+    <section class="overlay-content-wrapper">
+        <button id="close-btn" aria-label="Stäng">✕</button>
+
+        <header class="overlay-header">
+            <h1 id="modal-name">PLANETNAMN</h1>
+            <h2 id="modal-latin">LATIN</h2>
+        </header>
+
+        <p id="modal-desc" class="overlay-description">
+            Laddar beskrivning...
+        </p>
+
+        <hr />
+
+        <section class="stats-grid">
+            <article class="stat-item">
+                <h3>OMKRETS</h3>
+                <p id="modal-circumference">-</p>
+            </article>
+            <article class="stat-item">
+                <h3>FRÅN SOLEN</h3>
+                <p id="modal-distance">-</p>
+            </article>
+            <article class="stat-item">
+                <h3>MAX TEMPERATUR</h3>
+                <p id="modal-temp-day">-</p>
+            </article>
+            <article class="stat-item">
+                <h3>MIN TEMPERATUR</h3>
+                <p id="modal-temp-night">-</p>
+            </article>
+        </section>
+
+        <hr />
+
+        <article class="moons-container">
+            <h3>MÅNAR</h3>
+            <p id="modal-moons">-</p>
+        </article>
+    </section>
+
+    <footer class="overlay-footer">
+        <p>ZoCom</p>
+    </footer>
+</aside>
+
+<section id="error-overlay" class="hidden">
+    <article class="error-content">
+        <h1>HOPPSAN!</h1>
+        <p>Något gick fel när vi skulle hämta galaxen.</p>
+        <p>Detta beror oftast på rymdstörningar i API:et.</p>
+        <button id="retry-btn">Försök igen</button>
+    </article>
+</section>
 
 <script src="script.js"></script>
 </body>
