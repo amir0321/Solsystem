@@ -23,3 +23,4 @@ Du behöver inte installera något speciellt eftersom det bara är statiska file
 * `index.html` - Grundstrukturen.
 * `style.css` - Design och layout.
 * `script.js` - All logik för att hämta data och hantera klick.
+* `service.js` - API-anrop och datahantering.
