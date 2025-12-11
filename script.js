@@ -48,7 +48,7 @@ function showOverlay(planetData) {
 
 // Eventlisteners
 overlay.addEventListener('click', (e) => {
-    if (!overlayContent.contains(e.target)) {
+    if (overlayContent && !overlayContent.contains(e.target)) {
         overlay.classList.add('hidden');
     }
 });
